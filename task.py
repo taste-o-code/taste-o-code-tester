@@ -4,7 +4,7 @@ This module contains class Task. It defines methods that are common for all task
 from abc import ABCMeta, abstractmethod
 import os
 from tools.executer import execute_process
-from tools.checker import checker_naive
+from tools.checker import checker_ignore_whitespace
 from tools.preparator import clean_playground
 
 class Task(metaclass = ABCMeta):
@@ -46,8 +46,9 @@ class Task(metaclass = ABCMeta):
     self.postcode = open(path + "postcode.txt", "r").read()
     self.tests = [(open(path + x, "r").read(), open(path + x[:-2] + "out", "r").read())
       for x in filter(lambda x: x.endswith(".in"), os.listdir(path))]
+    print(self.tests)
     #TODO Here should be code for getting checker from task.
-    self.checker = checker_naive
+    self.checker = checker_ignore_whitespace
   
   def execute(self):
     """
@@ -76,5 +77,5 @@ if __name__ == '__main__':
   cpp.execute()
   #java = JavaTask("public class Main {\n  public static void main(String[] args) {\n    System.out.println(\"Hello, world.\");\n  }\n}\n", "JAVA.0");
   #java.execute()
-  python = PythonTask("print(\"Hello, world.\")\n", "PYTHON.0");
+  python = PythonTask("print(\"Hello, world!\")\n", "PYTHON.0");
   python.execute()

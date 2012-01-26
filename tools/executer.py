@@ -11,7 +11,12 @@ def execute_process(command, input = "", timelimit = 3):
   try:
     if sys.platform == 'win32':
       #Local testing
-      return subprocess.check_output(command.split()).decode("UTF-8")      
+      process = subprocess.Popen(command.split(), stdin = subprocess.PIPE, stdout = subprocess.PIPE)
+      process.stdin.write(input.encode("UTF-8"))
+      process.stdin.flush()
+      process.stdin.close()
+      process.wait()
+      return process.stdout.read().decode("UTF-8")
     else:
       #Onsite testing
       command = "timeout " + str(timelimit) + " " + command;
