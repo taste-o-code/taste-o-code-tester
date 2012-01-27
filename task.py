@@ -1,7 +1,7 @@
 """
 This module contains class Task. It defines methods that are common for all tasks and languages.
 """
-from abc import ABCMeta, abstractmethod
+from abc import ABCMeta
 import os
 from tools.executer import execute_process
 from tools.checker import checker_ignore_whitespace
@@ -12,21 +12,23 @@ class Task(metaclass = ABCMeta):
   Abstract class Task. It's used to store task and provides some common functions for all laguages.
   If the language is compilable you should overload method compile.
   """
-  path = "playground/"
+  path = "./playground/"
 
   def __init__(self, source, task_id):
     self.source = source
     self.task_id = task_id
   
   def compile(self):
-    """
-    This method should be overloaded if language is compilable
+    """                                                        
+    This method should be overloaded if language is compilable. It should return None (or thing that
+    can be considered as None) if everything was fine and information about error in other case
     """
     return None
   
-  @abstractmethod
   def create_files(self):
-    pass
+    source_file = open("{0}{1}".format(self.path, self.filename), "w")
+    print(self.source, file = source_file, end = "")
+    source_file.close()
   
   def test(self):
     """
@@ -46,7 +48,6 @@ class Task(metaclass = ABCMeta):
     self.postcode = open(path + "postcode.txt", "r").read()
     self.tests = [(open(path + x, "r").read(), open(path + x[:-2] + "out", "r").read())
       for x in filter(lambda x: x.endswith(".in"), os.listdir(path))]
-    print(self.tests)
     #TODO Here should be code for getting checker from task.
     self.checker = checker_ignore_whitespace
   
@@ -70,12 +71,6 @@ class Task(metaclass = ABCMeta):
 
 #Self testing code
 if __name__ == '__main__':
-  from languages.cpp import CppTask
-  from languages.java import JavaTask
   from languages.python import PythonTask
-  cpp = CppTask("#include <stdio.h>\n\nint main() {\n  puts(\"Hello, world.\");\n  return 0;\n}", "CPP.0");
-  cpp.execute()
-  #java = JavaTask("public class Main {\n  public static void main(String[] args) {\n    System.out.println(\"Hello, world.\");\n  }\n}\n", "JAVA.0");
-  #java.execute()
-  python = PythonTask("print(\"Hello, world!\")\n", "PYTHON.0");
+  python = PythonTask('print("Hello, world!")', "PYTHON.0");
   python.execute()
