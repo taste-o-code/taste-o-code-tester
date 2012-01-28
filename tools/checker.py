@@ -24,12 +24,12 @@ def checker_doubles(correct, output, eps = 1e-6):
   if (len(correct) != len(output)):
     return False
   for (first, second) in zip(correct, output):
-    if first == second: #If values are equal (floats or strings, or smth else).
+    if first == second: #If values are equal (floats, strings or smth else).
       continue
     try: #Otherwise we assume that they are floats
-      first = float(first)
+      first = float(first) #TODO: What if exception here?
       second = float(second)
-      if first > second + eps or second > first + eps: #In case they are differ in more than eps
+      if first > second + eps or second > first + eps: #In case they differ in more than eps
         return False
     except ValueError as e: #In case if one them is not float then we got WA/
       return False
