@@ -5,7 +5,8 @@ such as compling, running
 import subprocess, sys
 
 def execute_process(command, input = "", timelimit = 3):
-  """This function should be used for executing all system calls on server. It limit's
+  """
+  This function should be used for executing all system calls on server. It limits
   exection time. (Other restrictions can be added)
   """
   try:
