@@ -14,7 +14,7 @@ def checker_ignore_whitespace(correct, output):
   """
   return get_tokens(correct) == get_tokens(output)
 
-def checker_doubles(correct, output, eps = 1e-6):
+def checker_floats(correct, output, eps = 1e-6):
   """
   This function is used to test two lists of floats to be equal with absolute error no more than eps.
   It ignores whitespaces and assumes that all not float tokens must be equal.
@@ -34,19 +34,3 @@ def checker_doubles(correct, output, eps = 1e-6):
     except ValueError as e: #In case if one them is not float then we got WA/
       return False
   return True
-  
-if __name__ == '__main__':
-  correct  = "Ololo I love spam";
-  output = "Ololo       I love\r\nspam                       "
-  print(checker_naive(correct, output))
-  print(checker_ignore_whitespace(correct, output))
-  
-  correct = "0.9999991 or 0.5   "
-  output = "1 or    \n 0.4999999999"
-  print(checker_doubles(correct, output))
-  output = "1 or 0.5  1"
-  print(checker_doubles(correct, output))
-  output = "1 a 0.5"
-  print(checker_doubles(correct, output))
-  output = "1 or a0.5"
-  print(checker_doubles(correct, output))
