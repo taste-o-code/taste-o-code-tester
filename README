@@ -1,1 +1,22 @@
 This is a service that will be used for testing tasks.
+
+Installing redis:
+$ wget http://redis.googlecode.com/files/redis-2.4.6.tar.gz
+$ tar xzf redis-2.4.6.tar.gz
+$ cd redis-2.4.6
+$ make
+$ sudo cp src/redis-server src/redis-cli /usr/bin
+
+Copy redis configs:
+$ sudo mkdir /etc/redis
+$ sudo cp $PATH_TO_TOC_TESTER/scripts/configs/redis* /etc/redis
+
+
+Installing pyres:
+
+$ sudo apt-get install python-setuptools
+$ sudo apt-get install python-dev
+$ git clone git://github.com/binarydud/pyres.git
+$ cd pyres
+$ python setup.py build
+$ sudo python setup.py install
