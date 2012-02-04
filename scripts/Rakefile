@@ -1,0 +1,44 @@
+require 'yaml'
+require 'resque'
+RESQUE_CONFIG = YAML.load_file('configs/resque.yml')
+
+namespace :pyres do
+
+  desc "Start 1 pyres worker."
+  task :start do
+    port = RESQUE_CONFIG['redis_pyres'].split(':').last
+    queue = RESQUE_CONFIG['queue_pyres']
+    command = "PYTHONPATH=../ nohup pyres_worker -f $HOME/logs/pyres_worker.log --port=#{ port } #{ queue } > /dev/null &"
+    `sh -c '#{ command }' `
+  end
+
+  desc "Stops all pyres workers."
+  task :stop do
+    Resque.redis = RESQUE_CONFIG['redis_pyres']
+    workers = Resque.workers
+    puts "Killing workers: #{ workers }"
+    pids = workers.map(&:pid)
+
+    `kill -s QUIT #{pids.join(' ')}` unless pids.empty?
+  end
+end
+
+namespace :pyres_web do
+
+  desc "Start 2 pyres_web servers for 2 redis"
+  task :start do
+    ['resque', 'pyres'].each do |type|
+      redis = RESQUE_CONFIG["redis_#{ type }"]
+      web_port = RESQUE_CONFIG["web_#{ type }"]
+      `sh -c 'nohup pyres_web --dsn=#{ redis } --port=#{ web_port } > /dev/null &'`
+    end
+  end
+
+  desc "Stops all pyres_web servers."
+  task :stop do
+    `pkill -f pyres_web`
+  end
+end
+
+
+

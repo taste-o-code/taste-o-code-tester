@@ -20,3 +20,8 @@ $ git clone git://github.com/binarydud/pyres.git
 $ cd pyres
 $ python setup.py build
 $ sudo python setup.py install
+
+
+Installing python specific packages
+
+$ sudo apt-get install python-yaml

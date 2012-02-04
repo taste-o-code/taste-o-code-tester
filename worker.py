@@ -1,7 +1,8 @@
 from random import randint
 from pyres import ResQ
+import yaml
 
-REDIS_RESQUE = "localhost:6379"
+RESQUE_CONFIG = yaml.load(file('configs/resque.yml','r'))
 
 class SubmissionChecker:
 
@@ -19,7 +20,9 @@ class SubmissionChecker:
             result['result'] = 'failed'
             result['fail_cause'] = 'We are sorry'
 
-        ResQ(REDIS_RESQUE).push('submission_results',
-                                {'class': 'SubmissionResultHandler', 'args': [result]})
+        address = RESQUE_CONFIG['redis_resque']
+        queue = RESQUE_CONFIG['queue_resque']
+        worker = RESQUE_CONFIG['worker_resque']
+        ResQ(address).push(queue, {'class': worker, 'args': [result]})
 
 
