@@ -9,7 +9,11 @@ $ sudo cp src/redis-server src/redis-cli /usr/bin
 
 Copy redis configs:
 $ sudo mkdir /etc/redis
-$ sudo cp $PATH_TO_TOC_TESTER/scripts/configs/redis* /etc/redis
+$ sudo cp $PATH_TO_TOC_TESTER/scripts/configs/redis*.conf /etc/redis
+
+Running redis on boot
+$ cd $PATH_TO_TOC_TESTER/scripts/configs/upstart
+$ sudo cp all-redises.conf redis.conf /etc/init
 
 
 Installing pyres:
