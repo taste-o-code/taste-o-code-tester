@@ -29,7 +29,7 @@ def checker_floats(correct, output, eps = 1e-6):
     try: #Otherwise we assume that they are floats
       first = float(first)
       second = float(second)
-      if first > second + eps or second > first + eps: #In case they are differ in more than eps
+      if first > second + eps or second > first + eps: #In case they differ in more than eps
         return False
     except ValueError as e: #In case if one them is not float then we got WA/
       return False
