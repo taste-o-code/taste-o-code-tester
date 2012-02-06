@@ -5,4 +5,5 @@ import task
 
 class PythonTask(task.Task):
   execute_string = "python {0}main.py"
-  filename = "main.py"
+  filenames = ["main.py"]
+

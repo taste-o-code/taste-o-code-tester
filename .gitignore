@@ -1,4 +1,7 @@
 # Compiled source #
 ###################
 *.pyc
+__pycache_/*
+playground/*
 scripts/configs/resque.yml
+
