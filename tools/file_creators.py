@@ -1,3 +1,8 @@
+"""Author: Andrey Malevich
+This module contains different fucntions which are used to create files that
+are necessary to test task (i.e. source files, input files, etc.).
+"""
+
 import os
 import exceptions
 
@@ -12,7 +17,7 @@ def default_file_creator(task, path):
     path: Path were files should be created.
   
   Raises:
-    WrongSourcesError: Class task is in wrong condition. (Sizes of sources,
+    WrongSourcesError: Class task is in wrong condition. Sizes of sources,
     postcode and precode are unequal.
   """
   if (len(task.filenames) != len(task.sources) or len(task.filenames) != len(task.precode)
