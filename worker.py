@@ -20,9 +20,8 @@ class SubmissionChecker:
             result['result'] = 'failed'
             result['fail_cause'] = 'We are sorry'
 
-        address = RESQUE_CONFIG['redis_resque']
         queue = RESQUE_CONFIG['queue_resque']
         worker = RESQUE_CONFIG['worker_resque']
-        ResQ(address).push(queue, {'class': worker, 'args': [result]})
+        ResQ().push(queue, {'class': worker, 'args': [result]})
 
 
