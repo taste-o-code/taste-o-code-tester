@@ -2,7 +2,9 @@
 This module contains a set of functions that are used for executing system
 calls such as compling, running, etc.
 """
+from __future__ import print_function
 from subprocess import CalledProcessError
+#from tester_exceptions import TesterFailed
 import subprocess
 import sys
 
@@ -20,6 +22,9 @@ def execute_process(command, input = "", timelimit = 3):
   
   Returns:
     Function returns a tuple consisting of return code, stdout, stderr.
+  
+  Raises:
+    TesterFailed: There were problems with encoding test data.
   """
   encoding = sys.getfilesystemencoding() #Using system encoding for all strings.
   try:
@@ -39,5 +44,8 @@ def execute_process(command, input = "", timelimit = 3):
       process.stderr.read().decode(encoding))
   except CalledProcessError as e: #In case if called process crashed
     return (e.errno, "", str(e));
-  except UnicodeEncodeError as e: #Something went wrong with decoding result
+  except UnicodeEncodeError as e: #Something went wrong with encoding result
+    print("Failed. There problems with encoding " + input, file = sys.stderr)
+    raise TesterFailed("Failed on command " + command)
+  except UnicodeDecodeError as e: #Something went wrong with decoding result
     return (e.errno, "", str(e));

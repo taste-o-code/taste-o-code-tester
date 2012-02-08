@@ -21,7 +21,9 @@ class Executor:
     except Crash as exception:
       print("Crash: " + unicode(exception))
     except WrongAnswer as exception:
-      print("Wrong Answer: " + unicode(exception));
+      print("Wrong Answer: " + unicode(exception))
+    except TesterFailed as exception:
+      print("Out tester failed on: " + unicode(exception))
     else:
       print("AC")
 

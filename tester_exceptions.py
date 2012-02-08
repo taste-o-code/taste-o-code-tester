@@ -9,3 +9,6 @@ class CompilationError(BaseException):
 
 class Crash(BaseException):
   pass
+
+class TesterFailed(BaseException): 
+  pass
