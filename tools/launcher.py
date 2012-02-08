@@ -48,4 +48,4 @@ def execute_process(command, input = "", timelimit = 3):
     print("Failed. There problems with encoding " + input, file = sys.stderr)
     raise TesterFailed("Failed on command " + command)
   except UnicodeDecodeError as e: #Something went wrong with decoding result
-    return (e.errno, "", str(e));
+    return (exitcode, "", str(e));
