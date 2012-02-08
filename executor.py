@@ -17,11 +17,11 @@ class Executor:
       task.compile(path)
       task.test(path)
     except CompilationError as exception:
-      print("Compilation error:" + str(exception))
+      print("Compilation error: " + unicode(exception))
     except Crash as exception:
-      print("Crash:" + str(exception))
+      print("Crash: " + unicode(exception))
     except WrongAnswer as exception:
-      print("Wrong Answer: " + str(exception));
+      print("Wrong Answer: " + unicode(exception));
     else:
       print("AC")
 
@@ -33,10 +33,18 @@ int main() {
 }
 """])
   executor.execute()
+
+  executor = Executor("CPP.0", ["""#include <stdio.h>
+int main() {
+  printf("Hello, world!%c", -1);
+  return 0;
+}
+"""])
+  executor.execute()
   
   executor = Executor("CPP.0", ["""#include <stdio.hoho>
 int main() {
-  puts("Hello, world!");
+  printf("Hello, world!%c", -1);
   return 0;
 }
 """])
