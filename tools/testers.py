@@ -3,7 +3,8 @@ This module contains different fucntions which are used to test programs
 which are sent by users.
 """
 
-import exceptions
+from tester_exceptions import Crash
+from tester_exceptions import WrongAnswer
 from tools.launcher import execute_process
 
 def default_tester(task, path):
@@ -31,7 +32,7 @@ def default_tester(task, path):
     exitcode, stdout, stderr = execute_process(task.execute_string.format(path),
       input)
     if exitcode != 0:
-      raise exceptions.Crash("Program exited with code " + str(exitcode))
+      raise Crash("Program exited with code " + str(exitcode))
     elif not checker(output, stdout):
-      raise exceptions.WrongAnswer("Failed on test number: " + str(test_number))
+      raise WrongAnswer("Failed on test number: " + str(test_number))
     test_number += 1

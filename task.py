@@ -10,7 +10,7 @@ from tools.preparator import *
 from tools.testers import *
 
 
-class Task(metaclass = ABCMeta):
+class Task(object):
   """
   Class Task. It's used to store task and provides some common functions for all laguages.
   If the language is compilable you should overload method compile.

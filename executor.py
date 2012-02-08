@@ -1,4 +1,5 @@
-from exceptions import *
+from __future__ import print_function
+from tester_exceptions import *
 from tools.preparator import *
 
 class Executor:

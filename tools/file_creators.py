@@ -2,9 +2,9 @@
 This module contains different fucntions which are used to create files that
 are necessary to test task (i.e. source files, input files, etc.).
 """
-
+from __future__ import print_function
 import os
-import exceptions
+import tester_exceptions
 
 def default_file_creator(task, path):
   """Create files for given task.
@@ -22,7 +22,7 @@ def default_file_creator(task, path):
   """
   if (len(task.filenames) != len(task.sources) or len(task.filenames) != len(task.precode)
       or len(task.filenames) != len(task.postcode)):
-    raise exceptions.WrongSourcesError
+    raise tester_exceptions.WrongSourcesError
   for filename, precode, source, postcode in zip(task.filenames, task.sources, task.precode,
       task.postcode):
     source_file = open(os.path.join(path, filename), "w")

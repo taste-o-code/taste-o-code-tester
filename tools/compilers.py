@@ -2,8 +2,7 @@
 This module contains different fucntions which are used to compile programs
 which are sent by users.
 """
-
-from exceptions import CompilationError
+from tester_exceptions import CompilationError
 from tools.launcher import execute_process
 
 def default_compiler(task, path):
