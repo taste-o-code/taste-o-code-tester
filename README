@@ -6,23 +6,21 @@ $ tar xzf redis-2.4.6.tar.gz
 $ cd redis-2.4.6
 $ make
 $ sudo cp src/redis-server src/redis-cli /usr/bin
-
-Copy redis configs:
 $ sudo mkdir /etc/redis
-$ sudo cp $PATH_TO_TOC_TESTER/scripts/configs/redis*.conf /etc/redis
+$ sudo cp redis.conf /etc/redis
+
+Setup password in redis.conf
 
 Running redis on boot
-$ cd $PATH_TO_TOC_TESTER/scripts/configs/upstart
-$ sudo cp all-redises.conf redis.conf /etc/init
+$ sudo cp $PATH_TO_TOC_TESTER/scripts/configs/redis.conf /etc/init
 
-To run redis you can reboot or run 'sudo all-redises start'
-
+To run redis you can reboot or run 'sudo redis start'
 
 Installing pyres:
 
 $ sudo apt-get install python-setuptools
 $ sudo apt-get install python-dev
-$ git clone git://github.com/binarydud/pyres.git
+$ git clone git://github.com/nbeloglazov/pyres.git
 $ cd pyres
 $ python setup.py build
 $ sudo python setup.py install
