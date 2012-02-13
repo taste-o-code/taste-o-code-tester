@@ -1,0 +1,23 @@
+#TODO: Modify this profile for your needs
+#include <tunables/global>
+
+{0} {{
+  #include <abstractions/base>
+  #include <abstractions/fonts> #TODO: what is it for?
+
+  #!!!!!  http://linux.die.net/man/2/setrlimit
+  set rlimit as <= 150M, # limit memory
+  set rlimit core <= 2M, # limit core dump file http://linux.die.net/man/5/core
+  set rlimit fsize <= 1M, # allow to create files only this size at max
+  set rlimit nproc <= 10, # limits number of threads (fork bomb won't go! :))
+
+  #Making python work
+  /proc/** r,
+  /usr/include/python2.7/** r,
+  /usr/lib/python2.7/** r,
+  /usr/local/lib/python2.7/** r,
+  
+  {1} r,
+  
+  #TODO: put more compilers/binaries here or better move them somewhere else
+}}
