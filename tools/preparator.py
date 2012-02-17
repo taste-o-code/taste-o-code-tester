@@ -7,7 +7,7 @@ import os
 from os.path import join
 from importlib import import_module
 
-def get_task(task_id):
+def get_task(language, id):
   """Gets task.
   
   This function is used to get a Task which is going to be tested.
@@ -18,8 +18,8 @@ def get_task(task_id):
   Returns:
     Task that will be used for testing solution/
   """
-  language, id = task_id.split('.')
-  task_module = import_module("tasks." + task_id + ".task")
+#  language, id = task_id.split('.')
+  task_module = import_module("tasks." + language + "." + id + ".task")
   task = task_module.task
   path = join(".", "tasks", language, id)
   task.tests = [(open(join(path, x), "r").read(),

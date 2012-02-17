@@ -2,7 +2,8 @@
 This module contains different fucntions which are used to compile programs
 which are sent by users.
 """
-from tester_exceptions import CompilationError
+from testing_exceptions import CompilationError
+from testing_exceptions import CompilationLimitExceeded
 from tools.launcher import execute_process
 
 def default_compiler(task, path):
@@ -24,4 +25,7 @@ def default_compiler(task, path):
   """
   exitcode, stdout, stderr = execute_process(task.compile_string.format(path))
   if exitcode: # Compilation fails if returned non-zero exit code
-    raise CompilationError(stderr)
+    if exitcode != -9:
+      raise CompilationError(stderr)
+    else:
+      raise CompilationLimitExceeded(stderr)
