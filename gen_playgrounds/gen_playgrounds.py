@@ -36,21 +36,11 @@ if __name__ == "__main__":
     executable = executable.strip()
     if executable == '': continue
     shutil.copy(executable, sandbox_path)
-#    check_call(["cp", executable, sandbox_path])
 
   playground_with_subdir = os.path.join(path, '**') # all subdirectories and files
   profile = open('profile').read().format(playground_with_subdir, playground_with_subdir)
-
-  for entry in os.listdir(sandbox_path):
-    output = open(os.path.join(APPARMOR_PROFILES, os.path.join(sandbox_path, entry).replace('/', '.')[1:]), 'w')
-    #for now, using a single profile for all binary types
-    print (profile, file=output, end='')
-  
-  for entry in os.listdir(path):
-    if os.path.isdir(os.path.join(path, entry)):
-      cpp_binary = os.path.join(path, entry, 'a.out') #TODO: What is a default cpp binary file ?
-      output = open(os.path.join(APPARMOR_PROFILES, cpp_binary.replace('/', '.')[1:]), 'w')
-      print(profile, file = output)
+  output = open(os.path.join(APPARMOR_PROFILES, playground_with_subdir.replace('/','.')[1:]), 'w')
+  print(profile, file = output)
 
   check_call([APPARMOR_INIT, 'restart'])
   check_call(["chmod", '777', '-R',  path])
