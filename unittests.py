@@ -70,27 +70,27 @@ class ExecutorTest(unittest.TestCase):
     sources = self.get_sources("CPP", "3")
     executor = Executor("CPP", "3", sources, self.path)
     result, message = executor.execute()
-    self.assertTrue('time limit' in message.lower())
+    self.assertTrue(message.lower().startswith('time limit'))
   
   def test_cpp_task5(self):
     sources = self.get_sources("CPP", "4")
     executor = Executor("CPP", "4", sources, self.path)
     result, message = executor.execute()
-    self.assertTrue('wrong answer' in message.lower())
+    self.assertTrue(message.lower().startswith('wrong answer'))
 
   def test_cpp_task6(self):
     sources = self.get_sources("CPP", "5")
     executor = Executor("CPP", "5", sources, self.path)
     result, message = executor.execute()
     self.assertTrue(result == 'failed')
-    self.assertTrue('compilation time limit' in message.lower()) #OMG put these string in conf too, better localized
+    self.assertTrue(message.lower().startswith('compilation time limit')) #OMG put these string in conf too, better localized
 
   def test_cpp_task7(self):
     sources = self.get_sources("CPP", "6")
     executor = Executor("CPP", "6", sources, self.path)
     result, message = executor.execute()
     self.assertTrue(result == 'failed')
-    self.assertTrue('compilation error' in message.lower())
+    self.assertTrue(message.lower().startswith('compilation error'))
 
   def test_cpp_task8(self):
     sources = self.get_sources("CPP", "7")
