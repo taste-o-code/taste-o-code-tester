@@ -13,10 +13,13 @@ namespace :pyres do
 
   desc "Stops all pyres workers."
   task :stop do
-    workers = Resque.workers
+    queue = RESQUE_CONFIG['queue_pyres']
+    workers = Resque.workers.find_all { |w| w.queues.include?(queue) }
     puts "Killing workers: #{ workers }"
-    pids = workers.map(&:pid)
 
+    pids = workers.map { |w| w.id.split(':')[1] }
+
+    puts "kill -s QUIT #{pids.join(' ')}" unless pids.empty?
     `kill -s QUIT #{pids.join(' ')}` unless pids.empty?
   end
 end
