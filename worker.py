@@ -18,7 +18,7 @@ class SubmissionChecker(object):
     result = {"id": submission["id"]}
     try:
       executer = Executer(submission["lang"], submission["task"],
-          submission["source"], path)
+          submission["source"], os.path.join(path, str(os.getpid())))
       (result["result"], result["fail_cause"]) = executer.execute()
     except ImportError as error:
       result["result"] = "failed"

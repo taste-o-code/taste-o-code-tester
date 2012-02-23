@@ -9,7 +9,6 @@ from tools.file_creators import *
 from tools.preparator import *
 from tools.testers import *
 
-
 class Task(object):
   """
   Class Task. It's used to store task and provides some common functions for all laguages.
@@ -23,10 +22,15 @@ class Task(object):
     self.create_files = create_files.__get__(self)
     self.test = tester.__get__(self)
     self.checker = checker
-  
+ 
+
+  """
+  Compiles a task
+  Overload this method if language is compilable.
+
+  Raises:
+    CompilationError
+  """ 
   def compile(self, path):
-    """                                                        
-    This method should be overloaded if language is compilable. It should return None (or thing that
-    can be considered as None) if everything was fine and information about error in other case
-    """
-    return None
+    pass
+

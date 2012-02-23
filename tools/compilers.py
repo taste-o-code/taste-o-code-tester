@@ -28,4 +28,4 @@ def default_compiler(task, path):
     if exitcode != -9:
       raise CompilationError(stderr)
     else:
-      raise CompilationLimitExceeded(stderr)
+      raise CompilationLimitExceeded()

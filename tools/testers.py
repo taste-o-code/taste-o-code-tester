@@ -9,7 +9,7 @@ from testing_exceptions import WrongAnswer
 from tools.launcher import execute_process
 
 def default_tester(task, path):
-  """Tests a users solution of the task using a default execution line for
+  """Tests a user's solution of the task using a default execution line for
   task's language.
   
   This function tests solutions which are sent by users using a default
@@ -24,11 +24,10 @@ def default_tester(task, path):
     None.
   
   Raises:
-    Crash: User's solution have crashed.
-    WrongAnswer: User's solution have return a wrong answer.
+    Crash: User's solution crashed.
+    WrongAnswer: User's solution returned a wrong answer.
   """
-  checker = task.checker
-  test_number = 0
+  test_number = 1
   for input, output in task.tests:
     exitcode, stdout, stderr = execute_process(task.execute_string.format(path),
       input)
@@ -36,6 +35,6 @@ def default_tester(task, path):
       raise Crash("Program exited with code " + str(exitcode))
     elif exitcode == -9:
       raise TimeLimitExceeded()
-    elif not checker(output, stdout):
+    elif not task.checker(output, stdout):
       raise WrongAnswer("Failed on test number: " + str(test_number))
     test_number += 1
