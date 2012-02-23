@@ -36,13 +36,11 @@ def execute_process(command, input = "", timelimit = 3):
       command = "timeout " + str(timelimit) + " " + command;
     process = subprocess.Popen(command.split(), stdin = subprocess.PIPE,
     stdout = subprocess.PIPE, stderr = subprocess.PIPE)
-#    process.stdin.write(input.encode(encoding))
-#    process.stdin.flush()
-#    process.stdin.close()
+    #Write input to stdin and read stdout, stderr to EOF and waits until process
+    #terminate.
     stdout, stderr = process.communicate(input)
-    exitcode = process.wait() #wait returns exitcode of proccess
-    return (exitcode, stdout.decode(encoding), stderr.decode(encoding)) #process.stdout.read().decode(encoding),
-#      process.stderr.read().decode(encoding))
+    exitcode = process.returncode
+    return (exitcode, stdout.decode(encoding), stderr.decode(encoding))
   except CalledProcessError as e: #In case if called process crashed
     return (e.errno, "", str(e));
   except UnicodeEncodeError as e: #Something went wrong with encoding result
