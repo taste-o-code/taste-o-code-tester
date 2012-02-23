@@ -4,6 +4,7 @@ task.
 """
 
 import os
+import shutil
 from os.path import join
 from importlib import import_module
 
@@ -27,16 +28,26 @@ def get_task(language, id):
     for x in filter(lambda x: x.endswith(".in"), os.listdir(path))]
   return task
 
-def clean_directory(path):
-  """Cleans testing area.
+def prepare_directory(path):
+  """Creates directory for testing area.
   
-  This function is used to clean testing area from all files from previous
-  solutions.
+  This function is used to prepare testing area for testing solution.
   
   Args:
     path: Path to testing area.
   """
-  for filename in os.listdir(path):
-    file_path = os.path.join(path, filename)
-    if os.path.isfile(file_path):
-      os.unlink(file_path)
+  if (os.path.exists(path)): #If directory wasn't removed in previous run.
+    shutil.rmtree(path)
+  os.mkdir(path)
+
+def cleanup(path):
+  """Cleans path which was used as testing area.
+  
+  This function is used to clean path after testing.
+  
+  Args:
+    path: Path to testing area.
+  """
+  if (os.path.exists(path)):
+    shutil.rmtree(path)
+

@@ -70,7 +70,7 @@ class ExecutorTest(unittest.TestCase):
     sources = self.get_sources("CPP", "3")
     executor = Executor("CPP", "3", sources, self.path)
     result, message = executor.execute()
-    self.assertTrue(message.lower().startswith('time limit'))
+    self.assertTrue(message.lower().startswith('code execution time limit'))
   
   def test_cpp_task5(self):
     sources = self.get_sources("CPP", "4")
