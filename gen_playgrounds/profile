@@ -6,10 +6,11 @@
   #include <abstractions/fonts> #TODO: what is it for?
 
   #!!!!!  http://linux.die.net/man/2/setrlimit
-  set rlimit as <= 150M, # limit memory
+  set rlimit as <= 250M, # limit memory
   set rlimit core <= 2M, # limit core dump file http://linux.die.net/man/5/core
   set rlimit fsize <= 1M, # allow to create files only this size at max
-  set rlimit nproc <= 10, # limits number of threads (fork bomb won't go! :))
+  set rlimit nproc <= 20, # limits number of threads (fork bomb won't go! :))
+                          # Have no idea why java requires 10+ threads j_j
 
   #Making python work
   /proc/** r,
@@ -17,7 +18,7 @@
   /usr/lib/python2.7/** r,
   /usr/local/lib/python2.7/** r,
 
-  /usr/** r,
+  /usr/** r, #Is it good or is it not?
   
   {1} r,
   
