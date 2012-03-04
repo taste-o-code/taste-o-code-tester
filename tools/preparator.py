@@ -22,7 +22,7 @@ def get_task(language, id):
 #  language, id = task_id.split('.')
   task_module = import_module("tasks." + language + "." + id + ".task")
   task = task_module.task
-  path = join(".", "tasks", language, id)
+  path = join("..", "tasks", language, id)
   task.tests = [(open(join(path, x), "r").read(),
       open(join(path, x[:-2] + "out"), "r").read())
     for x in filter(lambda x: x.endswith(".in"), os.listdir(path))]

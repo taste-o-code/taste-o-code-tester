@@ -20,10 +20,12 @@ def default_file_creator(task, path):
     WrongSourcesError: Class task is in wrong condition. Sizes of sources,
     postcode and precode are unequal.
   """
-  if (len(task.filenames) != len(task.sources) or len(task.filenames) != len(task.precode)
+
+  sources = [task.sources]
+  if (len(task.filenames) != len(sources) or len(task.filenames) != len(task.precode)
       or len(task.filenames) != len(task.postcode)):
     raise testing_exceptions.WrongSourcesError
-  for filename, precode, source, postcode in zip(task.filenames, task.sources, task.precode,
+  for filename, precode, source, postcode in zip(task.filenames, sources, task.precode,
       task.postcode):
     source_file = open(os.path.join(path, filename), "w")
     print(precode + source + postcode, file = source_file, end = "")
