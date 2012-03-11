@@ -33,3 +33,12 @@ $ sudo apt-get install python-yaml
 Installing addeditional dependences for tester
 
 $ sudo apt-get install timeout
+
+Installing prolog
+
+$ wget http://www.gprolog.org/gprolog-1.4.0.tar.gz
+$ tar xvf gprolog-1.4.0.tar.gz
+$ cd gprolog-1.4.0/src
+$ ./configure
+$ make
+$ sudo make install
