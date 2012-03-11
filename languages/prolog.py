@@ -1,6 +1,5 @@
 from compilable_task import CompilableTask
 
-import logging
 
 def parse_list(result):
     items = map(lambda(st): st.strip(), result[1:-1].strip().split(','))
@@ -8,8 +7,6 @@ def parse_list(result):
 
 def prolog_checker(expected, real):
     result = real.splitlines().pop()
-    logging.warn("Expected %s" % expected)
-    logging.warn("Real %s" % result)
     return parse_list(result) == parse_list(expected)
 
 
