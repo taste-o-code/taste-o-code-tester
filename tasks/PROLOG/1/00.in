@@ -1,0 +1,1 @@
+catch(findall(X, father(X, ralph), Result), _, halt(1)), write(Result), halt(0).

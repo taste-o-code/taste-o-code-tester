@@ -8,14 +8,24 @@ import shutil
 from os.path import join
 from importlib import import_module
 
+def get_test_filenames(path):
+  filenames = filter(lambda x: x.endswith(".in"), os.listdir(path))
+  filenames.sort()
+  return filenames
+
+def read_test(path, name):
+  input = open(join(path, name + 'in'), 'r').read()
+  output = open(join(path, name + 'out'), 'r').read()
+  return (input, output)
+
 def get_task(language, id):
   """Gets task.
-  
+
   This function is used to get a Task which is going to be tested.
-  
+
   Args:
     task_id: Id of task which we are going to test.
-  
+
   Returns:
     Task that will be used for testing solution/
   """
@@ -23,9 +33,7 @@ def get_task(language, id):
   task_module = import_module("tasks." + language + "." + id + ".task")
   task = task_module.task
   path = join("..", "tasks", language, id)
-  task.tests = [(open(join(path, x), "r").read(),
-      open(join(path, x[:-2] + "out"), "r").read())
-    for x in filter(lambda x: x.endswith(".in"), os.listdir(path))]
+  task.tests = [read_test(path, filename[:-2]) for filename in get_test_filenames(path)]
   return task
 
 def prepare_directory(path):

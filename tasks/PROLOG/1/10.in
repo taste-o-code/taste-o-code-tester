@@ -1,0 +1,1 @@
+catch(findall(X, brother(X, alberta), Result), _, halt(1)), write(Result), halt(0).
