@@ -1,0 +1,1 @@
+catch(findall(X, gcd(1024, 768, X), Result), _, halt(1)), write(Result), halt(0).

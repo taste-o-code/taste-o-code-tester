@@ -1,0 +1,1 @@
+catch(findall(X, gcd(29, 32, X), Result), _, halt(1)), write(Result), halt(0).
