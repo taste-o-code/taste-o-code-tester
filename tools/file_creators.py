@@ -5,6 +5,7 @@ are necessary to test task (i.e. source files, input files, etc.).
 from __future__ import print_function
 import os
 import testing_exceptions
+import codecs
 
 def default_file_creator(task, path):
   """Create files for given task.
@@ -25,8 +26,8 @@ def default_file_creator(task, path):
   if (len(task.filenames) != len(sources) or len(task.filenames) != len(task.precode)
       or len(task.filenames) != len(task.postcode)):
     raise testing_exceptions.WrongSourcesError
-  for filename, precode, source, postcode in zip(task.filenames, sources, task.precode,
+  for filename, source, precode, postcode in zip(task.filenames, sources, task.precode,
       task.postcode):
-    source_file = open(os.path.join(path, filename), "w")
+    source_file = codecs.open(os.path.join(path, filename), mode='w', encoding='utf-8')
     print(precode + source + postcode, file = source_file, end = "")
     source_file.close()
