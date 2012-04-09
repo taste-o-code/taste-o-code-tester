@@ -1,0 +1,1 @@
+catch(findall(X, sudoku([[2, 1, _, _], [_, 3, 2, _], [_, _, _, 4], [1, _, _, _]], X), Result), _, halt(1)), write(Result), halt(0).
