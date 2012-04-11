@@ -18,7 +18,7 @@ class SubmissionChecker(object):
     result = {"id": submission["id"]}
     working_folder = os.path.join(path, str(os.getpid())) + '/'
     try:
-      executor = Executor(submission["lang"].upper(), str(submission["task"]),
+      executor = Executor(submission["lang"].upper(), submission["task"],
           submission["source"], working_folder)
       (result["result"], result["fail_cause"]) = executor.execute()
     except ImportError as error:
