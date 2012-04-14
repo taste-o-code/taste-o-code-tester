@@ -1,0 +1,1 @@
+catch(findall(X, queens(6, X), Result), _, halt(1)), write(Result), halt(0).
