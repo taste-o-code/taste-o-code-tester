@@ -6,7 +6,7 @@
   #include <abstractions/fonts> #TODO: what is it for?
 
   #!!!!!  http://linux.die.net/man/2/setrlimit
-  set rlimit as <= 250M, # limit memory
+  set rlimit as <= 455M, # limit memory
   set rlimit core <= 2M, # limit core dump file http://linux.die.net/man/5/core
   set rlimit fsize <= 1M, # allow to create files only this size at max
   set rlimit nproc <= 20, # limits number of threads (fork bomb won't go! :))
@@ -18,7 +18,7 @@
   /usr/lib/python2.7/** r,
   /usr/local/lib/python2.7/** r,
 
-  /usr/** r, #Is it good or is it not?
+  /usr/** rix, #Is it good or is it not?
   
   {1} r,
   

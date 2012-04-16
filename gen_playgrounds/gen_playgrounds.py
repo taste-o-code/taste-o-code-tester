@@ -41,6 +41,7 @@ if __name__ == "__main__":
   profile = open('profile').read().format(playground_with_subdir, playground_with_subdir)
   output = open(os.path.join(APPARMOR_PROFILES, playground_with_subdir.replace('/','.')[1:]), 'w')
   print(profile, file = output)
+  output.close()
 
   check_call([APPARMOR_INIT, 'restart'])
   check_call(["chmod", '777', '-R',  path])
