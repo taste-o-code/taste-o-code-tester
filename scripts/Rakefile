@@ -7,7 +7,7 @@ namespace :pyres do
   desc "Start 1 pyres worker."
   task :start do
     queue = RESQUE_CONFIG['queue_pyres']
-    command = "PYTHONPATH=../ nohup pyres_worker -f $HOME/logs/pyres_worker.log #{ queue } > /dev/null &"
+    command = "PYTHONPATH=$TOC_TESTER_PATH nohup pyres_worker -f $HOME/logs/pyres_worker.log #{ queue } > /dev/null &"
     `sh -c '#{ command }' `
   end
 

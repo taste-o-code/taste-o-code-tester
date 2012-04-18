@@ -8,6 +8,8 @@ import shutil
 from os.path import join
 from importlib import import_module
 
+PATH_TO_TASKS = join(os.environ['TOC_TESTER_PATH'], 'tasks')
+
 def get_test_filenames(path):
   filenames = filter(lambda x: x.endswith(".in"), os.listdir(path))
   filenames.sort()
@@ -32,7 +34,7 @@ def get_task(language, id):
 #  language, id = task_id.split('.')
   task_module = import_module("tasks." + language + "." + id + ".task")
   task = task_module.task
-  path = join("..", "tasks", language, id)
+  path = join(PATH_TO_TASKS, language, id)
   task.tests = [read_test(path, filename[:-2]) for filename in get_test_filenames(path)]
   return task
 
