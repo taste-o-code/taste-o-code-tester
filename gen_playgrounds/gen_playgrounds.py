@@ -16,6 +16,8 @@ if __name__ == "__main__":
   parser.add_argument("--count", type=int, default=4)
   args = parser.parse_args()
   path = args.path
+  if path[-1] != '/':
+    path += '/'
 
   if os.path.isdir(path):
     # OMG! Careful with it!
@@ -42,6 +44,12 @@ if __name__ == "__main__":
   output = open(os.path.join(APPARMOR_PROFILES, playground_with_subdir.replace('/','.')[1:]), 'w')
   print(profile, file = output)
   output.close()
+
+  # Copy java policy
+  java_policy = open('java.policy').read().format(path)
+  policy_file = open(os.path.join(path, 'java.policy'), 'w')
+  print(java_policy, file = policy_file)
+  policy_file.close()
 
   check_call([APPARMOR_INIT, 'restart'])
   check_call(["chmod", '777', '-R',  path])
