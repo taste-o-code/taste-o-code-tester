@@ -31,8 +31,8 @@ if __name__ == "__main__":
   os.mkdir(path)
   for number in xrange(args.count):
     os.mkdir(os.path.join(path, str(number)))
-  
-  sandbox_path = os.path.join(path, 'sandbox-executables') 
+
+  sandbox_path = os.path.join(path, 'sandbox-files')
   os.mkdir(sandbox_path)
   for executable in open('copy-executables'):
     executable = executable.strip()
@@ -47,10 +47,10 @@ if __name__ == "__main__":
 
   # Copy java policy
   java_policy = open('java.policy').read().format(path)
-  policy_file = open(os.path.join(path, 'java.policy'), 'w')
+  policy_file = open(os.path.join(sandbox_path, 'java.policy'), 'w')
   print(java_policy, file = policy_file)
   policy_file.close()
 
   check_call([APPARMOR_INIT, 'restart'])
   check_call(["chmod", '777', '-R',  path])
-   
+
