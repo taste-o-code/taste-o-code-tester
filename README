@@ -33,7 +33,7 @@ Installing python specific packages
 
 $ sudo apt-get install python-yaml
 
-Installing addeditional dependences for tester
+Installing additional dependences for tester
 
 $ sudo apt-get install timeout
 
@@ -45,3 +45,6 @@ $ cd gprolog-1.4.0/src
 $ ./configure
 $ make
 $ sudo make install
+
+Installing clojure (run gen_playgrounds.py script before to create playground)
+$ wget http://search.maven.org/remotecontent\?filepath\=org/clojure/clojure/1.4.0/clojure-1.4.0.jar -O %PATH_TO_PlAYGROUND%/sandbox-files/clojure-1.4.0.jar
