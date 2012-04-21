@@ -5,7 +5,7 @@ from executor import Executor
 import yaml, os
 
 RESQUE_CONFIG = yaml.load(file('configs/resque.yml','r'))
-path = "/home/playground/0"
+path = "/home/playground/"
 
 class SubmissionChecker(object):
 
