@@ -1,0 +1,1 @@
+(println (palindrome? [:a [:b :c] [:b :c] :a]))

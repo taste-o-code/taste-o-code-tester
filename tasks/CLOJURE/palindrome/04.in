@@ -1,0 +1,1 @@
+(println (palindrome? [:one :two :three :four :foor :three :two :one]))

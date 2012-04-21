@@ -1,0 +1,1 @@
+(println (palindrome? "123454321"))
