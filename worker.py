@@ -2,7 +2,7 @@ from __future__ import print_function
 from random import randint
 from pyres import ResQ
 from executor import Executor
-import yaml, os
+import yaml, os, time
 
 RESQUE_CONFIG = yaml.load(file('configs/resque.yml','r'))
 path = "/home/playground/"
@@ -13,8 +13,6 @@ class SubmissionChecker(object):
 
   @staticmethod
   def perform(submission):
-    print("Got submission")
-    print(submission)
     result = {"id": submission["id"]}
     working_folder = os.path.join(path, str(os.getpid())) + '/'
     try:
@@ -25,7 +23,12 @@ class SubmissionChecker(object):
       result["result"] = "failed"
       result["fail_cause"] = "We are sorry, but this language is not available."
 
-    queue = RESQUE_CONFIG['queue_resque']
+    if submission.has_key('destination_queue'):
+      queue = submission['destination_queue']
+      result['finish_time'] = time.time()
+    else:
+      queue = RESQUE_CONFIG['queue_resque']
+
     worker = RESQUE_CONFIG['worker_resque']
     ResQ().push(queue, {'class': worker, 'args': [result]})
 
