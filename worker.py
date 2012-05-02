@@ -15,6 +15,9 @@ class SubmissionChecker(object):
   def perform(submission):
     result = {"id": submission["id"]}
     working_folder = os.path.join(path, str(os.getpid())) + '/'
+    if submission.has_key('destination_queue'):
+      result['start_time'] = time.time()
+
     try:
       executor = Executor(submission["lang"].upper(), submission["task"],
           submission["source"], working_folder)
