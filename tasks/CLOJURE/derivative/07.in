@@ -1,0 +1,3 @@
+(let [expr (derivative (derivative '(/ (+ 2 (* x x))
+                                    (* 3 (* x (* x x))))))]
+     (println (mapv #(binding [x %] (str (eval expr))) [1 2 3])))
