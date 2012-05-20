@@ -1,0 +1,2 @@
+(check [:div {:class "ata-ta-ta" :id "only_div"}]
+       "<div id='only_div' class='ata-ta-ta'/>")

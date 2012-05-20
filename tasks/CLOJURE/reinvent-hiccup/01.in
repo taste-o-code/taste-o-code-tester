@@ -1,0 +1,3 @@
+(check [:html [:head [:title "Hello, world!"]]
+              [:body [:p "How are you?"]]]
+       "<html><head><title>Hello, world!</title></head><body><p>How are you?</p></body></html>")

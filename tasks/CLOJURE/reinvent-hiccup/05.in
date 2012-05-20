@@ -1,0 +1,23 @@
+(let [langs [{:name "Java" :price 10 :id "java"}
+             {:name "Clojure" :price 15 :id "clojure"}]]
+   (check [:div {:id "non_purchased_langs"}
+                (for [lang langs]
+                   [:div {:class "language"
+                          :data-price (:price lang)
+                          :id (:id lang)}
+                          [:div {:class "name"}
+                                (:name lang)]
+                          [:div {:class "price"}
+                                (:price lang)
+                                " points"]])]
+            "<div id='non_purchased_langs'>
+                 <div class='language' data-price='10' id='java'>
+                      <div class='name'>Java</div>
+                      <div class='price'>10 points</div>
+                 </div>
+                 <div class='language' data-price='15' id='clojure'>
+                      <div class='name'>Clojure</div>
+                      <div class='price'>15 points</div>
+                 </div>
+            </div>"))
+                                
