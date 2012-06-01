@@ -7,6 +7,6 @@ class CppTask(CompilableTask):
   """
   This class contains overloads of functions used specialy for testing C++ tasks
   """
-  compile_string = "g++ {0}main.cpp -o {0}main.out"
-  execute_string = "{0}main.out"
+  compile_string = "g++ {0}/main.cpp -o {0}/main.out"
+  execute_string = "{0}/main.out"
   filenames = ["main.cpp"]
