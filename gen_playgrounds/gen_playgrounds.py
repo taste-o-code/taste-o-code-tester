@@ -11,9 +11,8 @@ APPARMOR_INIT = '/etc/init.d/apparmor'
 APPARMOR_PROFILES = '/etc/apparmor.d/'
 
 if __name__ == "__main__":
-  parser = argparse.ArgumentParser(description = "Generates several playgrounds and makes apparmor use them")
+  parser = argparse.ArgumentParser(description = "Generates playground and makes apparmor use it")
   parser.add_argument("path")
-  parser.add_argument("--count", type=int, default=4)
   args = parser.parse_args()
   path = args.path
   if path[-1] != '/':
@@ -29,15 +28,13 @@ if __name__ == "__main__":
     shutil.rmtree(path)
 
   os.mkdir(path)
-  for number in xrange(args.count):
-    os.mkdir(os.path.join(path, str(number)))
 
-  sandbox_path = os.path.join(path, 'sandbox-files')
-  os.mkdir(sandbox_path)
+  files_path = os.path.join(path, 'files')
+  os.mkdir(files_path)
   for executable in open('copy-executables'):
     executable = executable.strip()
     if executable == '': continue
-    shutil.copy(executable, sandbox_path)
+    shutil.copy(executable, files_path)
 
   playground_with_subdir = os.path.join(path, '**') # all subdirectories and files
   profile = open('profile').read().format(playground_with_subdir, playground_with_subdir)
@@ -47,7 +44,7 @@ if __name__ == "__main__":
 
   # Copy java policy
   java_policy = open('java.policy').read().format(path)
-  policy_file = open(os.path.join(sandbox_path, 'java.policy'), 'w')
+  policy_file = open(os.path.join(files_path, 'java.policy'), 'w')
   print(java_policy, file = policy_file)
   policy_file.close()
 
