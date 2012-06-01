@@ -7,7 +7,7 @@ class Executor:
     self.task = get_task(language, task_id)
     self.path = path
     self.task.sources = sources
-    
+
   def execute(self):
     task = self.task
     path = self.path

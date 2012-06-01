@@ -2,10 +2,9 @@ from __future__ import print_function
 from random import randint
 from pyres import ResQ
 from executor import Executor
-import yaml, os, time
+import yaml, os, time, config
 
 RESQUE_CONFIG = yaml.load(file('configs/resque.yml','r'))
-path = "/home/playground/"
 
 class SubmissionChecker(object):
 
@@ -14,7 +13,7 @@ class SubmissionChecker(object):
   @staticmethod
   def perform(submission):
     result = {"id": submission["id"]}
-    working_folder = os.path.join(path, str(os.getpid())) + '/'
+    working_folder = os.path.join(config.PLAYGROUND_PATH, str(os.getpid())) + '/'
     if submission.has_key('destination_queue'):
       result['start_time'] = time.time()
 
