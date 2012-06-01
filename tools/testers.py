@@ -7,7 +7,9 @@ from testing_exceptions import Crash
 from testing_exceptions import TimeLimitExceeded
 from testing_exceptions import WrongAnswer
 from tools.launcher import execute_process
+import logging
 
+logger = logging.getLogger(__name__)
 
 def default_tester(task, path):
   """Tests a user's solution of the task using a default execution line for
@@ -33,6 +35,7 @@ def default_tester(task, path):
     exitcode, stdout, stderr = execute_process(task.execute_string.format(path),
       input)
     if exitcode != 0 and exitcode != -9:
+      logger.warning('Testing crashed: %s' % stderr)
       raise Crash("Program crashed on test #%s" % test_number)
     elif exitcode == -9:
       raise TimeLimitExceeded()
