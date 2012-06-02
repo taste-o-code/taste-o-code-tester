@@ -17,7 +17,7 @@ Setup password in redis.conf
 Running redis on boot
 $ sudo cp TOC_TESTER_PATH/scripts/configs/redis.conf /etc/init
 
-To run redis you can reboot or run 'sudo redis start'
+To run redis you can reboot or run 'sudo start redis'
 
 Installing pyres:
 
