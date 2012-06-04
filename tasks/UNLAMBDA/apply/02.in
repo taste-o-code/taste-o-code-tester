@@ -1,0 +1,5 @@
+``
+%
+``s``si``si`k.*`ki # Takes n, calculates square of n and applies it to .* i: ^n``$n`$n.*i
+``s``s`ks``s`kki``s``s`ks``s`kki``s``s`ks``s`kki``s``s`ks``s`kki`ki # 4 = f(f(f(f(x))))
+# Expect 16 stars
