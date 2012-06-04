@@ -1,5 +1,5 @@
 from languages.unlambda import UnlambdaTask
 
 
-# Write 'apply` function: it takes 2 arguments: f and x, and applies f to x. So it returns f(x).
+# Write 'increment` function: it takes 1 argument: n and should return n + 1. n is a function that takes f anx x and calls f(f(...f(x))) n times.
 task = UnlambdaTask()
