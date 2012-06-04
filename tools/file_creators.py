@@ -22,7 +22,7 @@ def default_file_creator(task, path):
     postcode and precode are unequal.
   """
 
-  sources = [task.sources]
+  sources = [task.source]
   if (len(task.filenames) != len(sources) or len(task.filenames) != len(task.precode)
       or len(task.filenames) != len(task.postcode)):
     raise testing_exceptions.WrongSourcesError

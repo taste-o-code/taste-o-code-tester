@@ -3,10 +3,10 @@ from tools.testing_exceptions import *
 from tools.preparator import *
 
 class Executor:
-  def __init__(self, language, task_id, sources, path):
+  def __init__(self, language, task_id, source, path):
     self.task = get_task(language, task_id)
     self.path = path
-    self.task.sources = sources
+    self.task.source = source
 
   def execute(self):
     task = self.task
