@@ -55,3 +55,8 @@ class CppTest(LanguageTester):
 
     def test(self):
         self.run_all_tasks('CPP')
+
+class JavaTest(LanguageTester):
+
+    def test(self):
+        self.run_all_tasks('JAVA')
