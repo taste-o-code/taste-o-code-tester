@@ -25,7 +25,7 @@ def check(expected, real):
 
 class PrologTask(CompilableTask):
     filenames = ['prolog.pl']
-    compile_string = "gplc {0}/prolog.pl -o {0}/prolog"
+    compile_strings = ["gplc {0}/prolog.pl -o {0}/prolog"]
     execute_string = "{0}/prolog"
 
     def __init__(self):

@@ -7,6 +7,8 @@ from subprocess import CalledProcessError
 #from tester_exceptions import TesterFailed
 import subprocess
 import sys
+import logging
+import shlex
 
 
 def execute_process(command, input = "", timelimit = 3):
@@ -34,7 +36,8 @@ def execute_process(command, input = "", timelimit = 3):
     else:
       #Onsite testing
       command = "timeout " + str(timelimit) + " " + command;
-    process = subprocess.Popen(command.split(), stdin = subprocess.PIPE,
+
+    process = subprocess.Popen(shlex.split(command), stdin = subprocess.PIPE,
     stdout = subprocess.PIPE, stderr = subprocess.PIPE)
     #Write input to stdin and read stdout, stderr to EOF and waits until process
     #terminate.

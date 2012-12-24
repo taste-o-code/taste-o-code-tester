@@ -34,6 +34,7 @@ def get_task(language, id):
   task_module = import_module("tasks." + language + "." + id + ".task")
   task = task_module.task
   path = join(config.TASKS_PATH, language, id)
+  task.directory = path
   task.tests = [read_test(path, filename[:-2]) for filename in get_test_filenames(path)]
   return task
 
