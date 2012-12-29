@@ -1,0 +1,82 @@
+How to add new language or task
+===============================
+
+1. Taste-o-Code consists of 2 parts: web site and tester.
+   * Web site is used for interaction with user.
+   * Tester tests all solutions submitted by users.
+2. When you want to add new language or task you need to add it to web site and tester separately.
+   See instructions below for each kind of operation.
+
+
+
+How to add new language on web site
+===================================
+
+1. Go to http://taste-o-code.com/admin
+2. Login
+3. Go to "Languages"
+4. Create new language.
+   * Change id to language name: id of Java - java, C++ - cpp.
+     Language id not language name is used when submit solution to tester.
+   * Code example must be at most 12 lines of code and should not be short.
+     It should fit nicely on greeting page.
+
+
+
+How to add new language to tester
+=================================
+
+1. Install necessary libs/compilers on machine and add instruction to README.
+2. Create new class that extends Task or CompilableTask.
+   Check existing examples in 'languages' directory.
+3. Create directory in 'tasks' directory. It's name must be the same as language id on web site but in upper case.
+4. Create empty file __init__.py in new directory.
+
+
+
+How to add new task on web site
+===============================
+
+1. Go to http://taste-o-code.com/admin
+2. Login
+3. Go to "Languages"
+4. Find language and go to "Tasks" for that language.
+5. Create new task
+   * Slug for language must be a string that contains lower case letters and dashes: a-z or -
+     Slug is used as task url and as task id when sending it tester.
+
+
+
+How to add new task to tester
+=============================
+
+1. Go to 'tasks/LANGUAGE_NAME' directory.
+2. Create directory for task. It's name must be equals to task slug on web site.
+3. Go to new directory.
+4. Create empty file __init__.py.
+5. Create task.py file. It must contain at least 1 variable - task, instance of Task.
+   Check existing tasks for examples.
+6. Create set of tests. Test is a pair of text files: xx.in xx.out.
+7. Implement solution for the task and put it to new 'solution' folder.
+8. Upload task to server: push changes to github, login to server, pull changes to 'toc-tester` repo.
+   You don't need to restart tester workers: they'll reload sources automatically.
+
+
+
+How to test task on tester before uploading
+===========================================
+
+1. You can use following python script to test task:
+
+-----------------------------------------------------------------------------------
+from executor import Executor
+
+solution = open('tasks/JAVA/hello-world/solution/Solution.java').read()
+result = Executor('JAVA', 'hello-world', solution, '/home/playground/1/').execute()
+
+print result
+-----------------------------------------------------------------------------------
+
+2. It will be nice to add new task to tests.
+   Open 'tests/test_languages.py' file and add your language if it's not added yet.
+   Run tests with 'python -m unittest tests.test_languages.YourLanguageTest' command.
