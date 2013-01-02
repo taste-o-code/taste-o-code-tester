@@ -1,4 +1,4 @@
-public class Solution {
+public class IpConverter {
 
     private int[] parse(String address) {
         String[] parts = address.split("\\.");
@@ -50,13 +50,5 @@ public class Solution {
             res[i] = val;
         }
         return join(res);
-    }
-
-    public static void main(String[] args) {
-        String ip = "10001011.10001100.00010001.01001111";
-        Solution sol = new Solution();
-        System.out.println(sol.ipToDec(ip));
-        System.out.println(sol.ipToHex(ip));
-        System.out.println(sol.ipToBin(ip));
     }
 }

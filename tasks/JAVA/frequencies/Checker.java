@@ -19,7 +19,7 @@ public class Checker {
             numbers[i] = sc.nextInt();
         }
         int[] correct = correctSolution(numbers);
-        int[] usersAnswer = new Solution().frequencies(numbers);
+        int[] usersAnswer = new Frequencies().frequencies(numbers);
         boolean result = Arrays.equals(correct, usersAnswer);
         System.out.println(result);
     }

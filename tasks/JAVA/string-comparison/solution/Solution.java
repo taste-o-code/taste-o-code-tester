@@ -1,6 +1,6 @@
 import java.util.Comparator;
 
-public class Solution {
+public class StringComparison {
 
     public static enum StringComparator implements Comparator<String> {
         ASCENDING {

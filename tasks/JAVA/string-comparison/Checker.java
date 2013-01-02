@@ -15,7 +15,7 @@ public class Checker {
         for (int i = 0; i < n; i++) {
             strings.add(reader.readLine());
         }
-        Comparator<String> comparator = new Solution().getComparator(sortType);
+        Comparator<String> comparator = new StringComparison().getComparator(sortType);
         Collections.sort(strings, comparator);
         for (String string : strings) {
             System.out.println(string);

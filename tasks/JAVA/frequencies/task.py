@@ -4,3 +4,4 @@ from languages.java import JavaTask
 # Write 'frequencies' function that takes array of ints where every int from 0 to 99. Return array of frequencies.
 
 task = JavaTask()
+task.set_solution_class_name("Frequencies")

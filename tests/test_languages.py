@@ -20,7 +20,7 @@ class LanguageTester(unittest.TestCase):
         logging.info('Testing %s %s' % (language, task))
         source = self.task_solution(language, task)
         result = executor.Executor(language, task, source, PLAYGROUND_TEST_DIR).execute()
-        self.assertEqual(result[0], 'accepted', msg = ("Task %s %s doesn't pass" % (language, task)))
+        self.assertEqual(result[0], 'accepted', msg = ("Task %s %s doesn't pass. Result: %s" % (language, task, result)))
 
 
     def run_all_tasks(self, language):

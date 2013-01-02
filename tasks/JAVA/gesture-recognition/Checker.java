@@ -20,7 +20,7 @@ public class Checker {
 
     public static void main(String[] args) throws Exception {
         Point[][] data = readInput();
-        Solution.Gesture result = new Solution().recognize(data);
+        GestureRecognition.Gesture result = new GestureRecognition().recognize(data);
         System.out.println(result.name());
     }
 }

@@ -1,4 +1,4 @@
-public class Solution {
+public class Frequencies {
 
     public int[] frequencies(int[] numbers) {
         int[] result = new int[100];

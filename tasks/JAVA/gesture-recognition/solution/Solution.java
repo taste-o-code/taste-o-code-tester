@@ -1,6 +1,6 @@
 import java.awt.Point;
 
-public class Solution {
+public class GestureRecognition {
 
     public static enum Gesture {
         SLIDE_LEFT(1, Dir.LEFT),

@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Solution {
+public class DessertLovers {
 
 
     public Map<String, Integer> dessertFrequencies(Map<String, List<String>> desserts) {

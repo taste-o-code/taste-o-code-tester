@@ -28,7 +28,7 @@ public class Checker {
 
     public static void main(String[] args) throws Exception {
         Map<String, List<String>> data = readData();
-        Map<String, Integer> frequencies = new Solution().dessertFrequencies(data);
+        Map<String, Integer> frequencies = new DessertLovers().dessertFrequencies(data);
         printResults(frequencies);
     }
 }
