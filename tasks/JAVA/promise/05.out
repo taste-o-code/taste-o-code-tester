@@ -1,0 +1,16 @@
+prepare first
+first promise is done: false
+first promise is cancelled: false
+try get
+cancel promise: true
+threw exception
+first promise is done: true
+first promise is cancelled: true
+prepare second
+second promise is done: false
+second promise is cancelled: false
+try get with timeout
+cancel promise: true
+threw exception
+second promise is done: true
+second promise is cancelled: true

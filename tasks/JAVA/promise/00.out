@@ -1,0 +1,5 @@
+prepare
+promise is done: false
+setting value to promise
+got value: VAL
+promise is done: true

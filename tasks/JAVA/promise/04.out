@@ -1,0 +1,10 @@
+prepare
+promise is done: false
+promise is cancelled: false
+cancel promise: true
+promise is done: true
+promise is cancelled: true
+try get
+threw exception
+try get with timeout
+threw exception

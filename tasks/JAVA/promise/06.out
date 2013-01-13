@@ -1,0 +1,9 @@
+prepare
+promise is done: false
+promise is cancelled: false
+set promise
+promise is done: true
+promise is cancelled: false
+cancel promise: false
+promise is done: true
+promise is cancelled: false
