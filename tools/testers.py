@@ -8,8 +8,12 @@ from testing_exceptions import TimeLimitExceeded
 from testing_exceptions import WrongAnswer
 from tools.launcher import execute_process
 import logging
+logging.basicConfig()
 
 logger = logging.getLogger(__name__)
+
+def is_timeout(exitcode):
+  return exitcode == -9 or exitcode == 124
 
 def default_tester(task, path):
   """Tests a user's solution of the task using a default execution line for
@@ -34,10 +38,10 @@ def default_tester(task, path):
   for input, output in task.tests:
     exitcode, stdout, stderr = execute_process(task.execute_string.format(path),
       input)
-    if exitcode != 0 and exitcode != -9:
-      logger.warning('Testing crashed: %s' % stderr)
+    if exitcode != 0 and not is_timeout(exitcode):
+      logger.warning('Testing crashed: %s stdout %s, stderr %s' % (exitcode, stdout, stderr))
       raise Crash("Program crashed on test #%s" % test_number)
-    elif exitcode == -9:
+    elif is_timeout(exitcode):
       raise TimeLimitExceeded()
     elif not task.checker(output, stdout):
       raise WrongAnswer("Failed on test #%s" % test_number)

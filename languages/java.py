@@ -24,7 +24,7 @@ class JavaTask(CompilableTask):
 
   def __init__(self):
     CompilableTask.__init__(self)
-    self.execute_string = "java -cp {0} Checker"
+    self.execute_string = "java -Xmx64m -cp {0} Checker"
     self.checker_file = "Checker.java"
     self.filename = "Solution.java"
     self.compile_strings = ["javac {0}/Solution.java", "javac -cp {0} {0}/Checker.java"]
