@@ -1,0 +1,6 @@
+(defargs sum [a 1 b 2 acc (atom 0) ]
+  (swap! acc + a)
+  (swap! acc + b)
+  @acc)
+
+(println (sum 2 3))
