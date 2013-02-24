@@ -37,3 +37,5 @@ class CheckerTest(unittest.TestCase):
     self.assertFalse(checker_floats(correct, output))
     output = "1 or 0.4e-1"
     self.assertTrue(checker_floats(correct, output, eps = 0.01))
+    # Check NaN
+    self.assertFalse(checker_floats("1", "nan"))

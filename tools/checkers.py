@@ -1,3 +1,5 @@
+from math import isnan
+
 """Author: Andrey Malevich
 This module contains different checkers which are used to test outputs of
 programs.
@@ -71,6 +73,8 @@ def checker_floats(correct, output, eps = 1e-6):
     try: #Otherwise we assume that they are floats
       first = float(first)
       second = float(second)
+      if isnan(first) or isnan(second):
+        return False
       if first > second + eps or second > first + eps:  #In case they differ in
           # more than eps
         return False
