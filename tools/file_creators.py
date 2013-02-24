@@ -6,6 +6,7 @@ from __future__ import print_function
 import os
 import testing_exceptions
 import codecs
+import shutil
 
 def default_file_creator(task, path):
   """Create files for given task.
@@ -31,3 +32,15 @@ def default_file_creator(task, path):
     source_file = codecs.open(os.path.join(path, filename), mode='w', encoding='utf-8')
     print(precode + source + postcode, file = source_file, end = "")
     source_file.close()
+
+def create_solution_and_copy_checker(task, path):
+  """
+  Creates file with user solution in given folder and copies checker from task directory to given folder.
+  """
+  filename = task.filename
+  source_file = codecs.open(os.path.join(path, filename), mode="w", encoding="utf-8")
+  print(task.source, file = source_file, end = "")
+  source_file.close()
+  checker_path = os.path.join(task.directory, task.checker_file)
+  shutil.copy(checker_path, path)
+
