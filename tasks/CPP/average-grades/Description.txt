@@ -1,0 +1,55 @@
+Задача: на вход поступает имя бинарного файла, в который записаны объекты класса с интерфейсом вида
+
+class Student
+{
+	//...
+	char lastName[20];
+	
+	int    group;
+	double gpa;
+}
+
+Ваша задача состоит в следующем: рассчитать средний балл по каждой группе (!! можно дописать, что это значит, если не поймут (сумма средних по группе делить на количество)) и вывести в стандартный поток следующие данные:
+
+группа1 средний балл по группе1
+группа2 средний балл по группе2
+...
+группаn средний балл по группеn
+
+Замечание1: группы должны идти в отсортированном порядке.
+Замечание2: группы в файле необязательно отсортированы.
+
+Содержание тестовых входных файлов (я уже код не убирал, тут и так все ясно: фамилия группа средний балл)
+
+/*
+00.bin
+	students.push_back(Student("Ivanov",      2,  7.5));
+	students.push_back(Student("Petrova",     1,  8.2));
+	students.push_back(Student("Sidorov",     5,  4.5));
+	students.push_back(Student("Oleinikov",   3,  8.4));
+	students.push_back(Student("Zadvorniy",   2,  9.5));
+	students.push_back(Student("Mazanik",     2,  10.0));
+	students.push_back(Student("Sergeev",     1,  6.7));
+	students.push_back(Student("Pavlov",      10, 7.1));
+	students.push_back(Student("Egorov",      12, 4.8));
+	students.push_back(Student("Byhina",      8,  8.9));
+	students.push_back(Student("Havavakina",  1,  5.2));
+	students.push_back(Student("Abvgdeikina", 5,  7.8));
+
+01.bin
+	students.push_back(Student("Ivanov",      1,  7.5));
+	students.push_back(Student("Petrova",     1,  10.0));
+	students.push_back(Student("Sidorov",     1,  4.5));
+	students.push_back(Student("Oleinikov",   5,  8.4));
+	students.push_back(Student("Zadvorniy",   2,  9.5));
+	students.push_back(Student("Mazanik",     3,  10.0));
+	students.push_back(Student("Sergeev",     1,  6.7));
+	students.push_back(Student("Pavlov",      1,  7.1));
+	students.push_back(Student("Egorov",      9,  4.0));
+	students.push_back(Student("Byhina",      8,  7.4));
+	students.push_back(Student("Havavakina",  1,  5.2));
+	students.push_back(Student("Abvgdeikina", 5,  5.2));
+
+02.bin
+	students.push_back(Student("Ivanov",      1,  7.5));
+	*/

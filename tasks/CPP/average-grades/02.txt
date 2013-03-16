@@ -1,0 +1,13 @@
+12
+Ivanov 2 7.5
+Petrova 1 8.2
+Sidorov 5 4.5
+Oleinikov 3 8.4
+Zadvorniy 2 9.5
+Mazanik 2 10
+Sergeev 1 6.7
+Pavlov 10 7.1
+Egorov 12 4.8
+Byhina 8 8.9
+Havavakina 1 5.2
+Abvgdeikina 5 7.8

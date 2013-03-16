@@ -1,0 +1,4 @@
+3
+Ivanov 2 7.5
+Petrova 1 8.2
+Sidorov 2 10

@@ -11,13 +11,14 @@ import logging
 import shlex
 
 
-def execute_process(command, input = "", timelimit = 3):
+def execute_process(command, input = "", timelimit = 3, testdir = None):
   """Executes process.
   
   This function should be used for executing all system calls on server whose
   execution is independent from process output. It also limit's exection time.
   
   Args:
+    testdir: path to a current testing directory
     command: System call that should be executed.
     input: String that should be given to command as input.
     timelimit: Limit of time that is given to execute program.
@@ -38,7 +39,7 @@ def execute_process(command, input = "", timelimit = 3):
       command = "timeout " + str(timelimit) + " " + command;
 
     process = subprocess.Popen(shlex.split(command), stdin = subprocess.PIPE,
-    stdout = subprocess.PIPE, stderr = subprocess.PIPE)
+    stdout = subprocess.PIPE, stderr = subprocess.PIPE, cwd = testdir)
     #Write input to stdin and read stdout, stderr to EOF and waits until process
     #terminate.
     stdout, stderr = process.communicate(input)
