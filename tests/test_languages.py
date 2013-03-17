@@ -1,9 +1,10 @@
 from os.path import join
-import unittest, config, os
+import unittest, config, os, fnmatch
 import executor
 import logging
 
 PLAYGROUND_TEST_DIR = os.path.join(config.PLAYGROUND_PATH, 'test')
+SOLUTIONS_DIR = "solutions"
 
 logging.basicConfig(level = logging.DEBUG)
 
@@ -11,8 +12,8 @@ class LanguageTester(unittest.TestCase):
 
 
     def task_solution(self, language, task):
-        solution_dir = join(config.TASKS_PATH, language, task, 'solution')
-        files = os.listdir(solution_dir)
+        solution_dir = join(SOLUTIONS_DIR, language)
+        files = fnmatch.filter(os.listdir(solution_dir), "%s.*" % task)
         self.assertEqual(len(files), 1, msg = 'Only 1 solution expected for each task now.')
         return open(join(solution_dir, files[0])).read()
 
