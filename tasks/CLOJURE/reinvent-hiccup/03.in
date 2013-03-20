@@ -1,2 +1,2 @@
-(check [:ul (map #(vector :li %) ["John" "Bob" "Tom" "Scotty"])]
+(check-hiccup-task-48gj4Jk [:ul (map #(vector :li %) ["John" "Bob" "Tom" "Scotty"])]
        "<ul><li>John</li><li>Bob</li><li>Tom</li><li>Scotty</li></ul>")

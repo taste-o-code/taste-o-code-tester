@@ -1,1 +1,1 @@
-(check [:html] "<html/>")
+(check-hiccup-task-48gj4Jk [:html] "<html/>")
