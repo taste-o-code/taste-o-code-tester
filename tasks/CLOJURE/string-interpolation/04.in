@@ -1,0 +1,1 @@
+(println (<< "Some 'random' sequence: ~(->> (range 20) (map #(* % %)) (filter #(= 4 (mod % 5))) pr-str)."))

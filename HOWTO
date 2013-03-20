@@ -71,7 +71,7 @@ How to test task on tester before uploading
 -----------------------------------------------------------------------------------
 from executor import Executor
 
-solution = open('tasks/JAVA/hello-world/solution/Solution.java').read()
+solution = open('solutions/hello-world.java').read()
 result = Executor('JAVA', 'hello-world', solution, '/home/playground/1/').execute()
 
 print result

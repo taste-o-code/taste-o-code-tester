@@ -1,0 +1,3 @@
+(println (let [lang "Clojure"
+               type "cool"]
+           (<< "~{lang} is ~{type}")))

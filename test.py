@@ -1,8 +1,8 @@
 from executor import Executor
 
-lang = 'CPP'
-task = 'average-grades'
-solution = open('solutions/' + lang + '/' + task + '.cpp').read()
+lang = 'CLOJURE'
+task = 'string-interpolation'
+solution = open('solutions/' + lang + '/' + task + '.clj').read()
 result = Executor(lang, task, solution, '/home/playground/1/').execute()
 
 print result
