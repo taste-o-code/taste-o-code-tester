@@ -1,0 +1,6 @@
+(let [m {:a [1 2 3]}
+      v 30.5]
+ (println (<< "Just split a long interpolated string up into ~(-> m :a (get 0)), "
+              "~(-> m :a (get 1)), or even ~(-> m :a (get 2)) separate strings "
+              "if you don't want a << expression to end up being e.g. ~(* 4 (int v)) "
+              "columns wide.")))
