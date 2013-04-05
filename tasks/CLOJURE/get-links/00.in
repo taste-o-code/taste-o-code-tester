@@ -1,0 +1,7 @@
+[:html {}
+ [:head {}
+  [:title {} "clojure - Google Search"]]
+ [:body {}
+  [:h3 {:class "r"} [:a {:class "l", :href "http://clojure.org/"} [:em {} "Clojure"] " - home"]]
+  [:h3 {:class "r"} [:a {:class "l", :href "http://en.wikipedia.org/wiki/Clojure"} [:em {} "Clojure"] " - Wikipedia, the free encyclopedia"]]
+  [:h3 {:class "r"} [:a {:class "l vst", :href "http://clojuredocs.org/"} "ClojureDocs - Community-Powered " [:em {} "Clojure"] " Documentation and " [:b {} "..."]]]]]
