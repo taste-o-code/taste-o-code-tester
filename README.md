@@ -75,7 +75,7 @@ sudo make install
 Installing clojure (run gen_playgrounds.py script before to create playground)
 
 ```shell
-wget 'http://search.maven.org/remotecontent?filepath=org/clojure/clojure/1.4.0/clojure-1.4.0.jar'  -O %PATH_TO_PlAYGROUND%/files/clojure-1.4.0.jar
+wget 'http://search.maven.org/remotecontent?filepath=org/clojure/clojure/1.5.1/clojure-1.5.1.jar'  -O %PATH_TO_PlAYGROUND%/files/clojure-1.5.1.jar
 ```
 
 Installing Unlambda
