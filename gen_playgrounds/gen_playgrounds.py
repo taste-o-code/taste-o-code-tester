@@ -6,7 +6,7 @@ from sys import stdin, exit
 import argparse
 import shutil
 import os
-from sh import cp, chmod
+from sh import chmod
 
 APPARMOR_INIT = '/etc/init.d/apparmor'
 APPARMOR_PROFILES = '/etc/apparmor.d/'
@@ -44,7 +44,10 @@ if __name__ == "__main__":
   output.close()
 
   # Copy java policy
-  cp('java.policy', files_path)
+  java_policy = open('java.policy').read().format(path)
+  policy_file = open(os.path.join(files_path, 'java.policy'), 'w')
+  print(java_policy, file = policy_file)
+  policy_file.close()
 
   check_call([APPARMOR_INIT, 'restart'])
   chmod('777', path)
