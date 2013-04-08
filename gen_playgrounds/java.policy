@@ -2,5 +2,6 @@ grant {{
   permission java.io.FilePermission "{0}-", "read";
   permission java.util.PropertyPermission "*", "read";
   permission java.lang.RuntimePermission "createClassLoader";
+  permission java.lang.RuntimePermission "modifyThread";
 }};
 
