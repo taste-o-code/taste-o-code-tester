@@ -40,9 +40,9 @@ def default_tester(task, path):
       input, testdir = path)
     if exitcode != 0 and not is_timeout(exitcode):
       logger.warning('Testing crashed: %s stdout %s, stderr %s' % (exitcode, stdout, stderr))
-      raise Crash("Program crashed on test #%s" % test_number)
+      raise Crash("Program crashed on test #%s\n%s" % (test_number, stderr))
     elif is_timeout(exitcode):
-      raise TimeLimitExceeded()
+      raise TimeLimitExceeded(test_number)
     elif not task.checker(output, stdout):
       raise WrongAnswer("Failed on test #%s" % test_number)
     test_number += 1
