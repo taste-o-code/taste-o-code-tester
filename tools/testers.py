@@ -36,8 +36,7 @@ def default_tester(task, path):
   """
   test_number = 1
   for input, output in task.tests:
-    exitcode, stdout, stderr = execute_process(task.execute_string.format(path),
-      input, testdir = path)
+    exitcode, stdout, stderr = execute_process(task.execute_string, input, testdir = path)
     if exitcode != 0 and not is_timeout(exitcode):
       logger.warning('Testing crashed: %s stdout %s, stderr %s' % (exitcode, stdout, stderr))
       raise Crash("Program crashed on test #%s\n%s" % (test_number, stderr))

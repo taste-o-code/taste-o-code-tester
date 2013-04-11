@@ -20,7 +20,7 @@ def unlambda_tester(task, path):
   test_number = 1
   for template, output in task.tests:
     substitute_and_write_solution(template, task.source, solution_file)
-    exitcode, stdout, stderr = execute_process(task.execute_string.format(path))
+    exitcode, stdout, stderr = execute_process(task.execute_string, testdir = path)
     if exitcode != 0 and exitcode != -9:
       logger.warning('Testing crashed: %s' % stderr)
       raise Crash("Program crashed on test #%s" % test_number)
@@ -43,6 +43,6 @@ class UnlambdaTask(Task):
     def __init__(self):
         super(UnlambdaTask, self).__init__(tester = unlambda_tester)
 
-    execute_string = "{0}/unlambda {{0}}/solution.unl".format(config.PLAYGROUND_FILES_PATH)
+    execute_string = "{0}/unlambda solution.unl".format(config.PLAYGROUND_FILES_PATH)
     filenames = ["solution.unl"]
 

@@ -7,9 +7,9 @@ from testing_exceptions import CompilationLimitExceeded
 from tools.launcher import execute_process
 
 
-def compile(compile_string):
+def compile(compile_string, path):
   """ Runs given string and raises exception if it returned any error. """
-  exitcode, stdout, stderr = execute_process(compile_string)
+  exitcode, stdout, stderr = execute_process(compile_string, testdir = path)
   if exitcode: # Compilation fails if returned non-zero exit code
     if exitcode != -9:
       raise CompilationError(stderr)
@@ -35,4 +35,4 @@ def default_compiler(task, path):
     CompilationError: A compilation error accured.
   """
   for compile_string in task.compile_strings:
-    compile(compile_string.format(path))
+    compile(compile_string, path)
