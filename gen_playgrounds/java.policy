@@ -1,6 +1,7 @@
 grant {{
   permission java.io.FilePermission "{0}-", "read";
   permission java.util.PropertyPermission "clojure.*", "read";
+  permission java.util.PropertyPermission "user.dir", "read";
   permission java.lang.RuntimePermission "createClassLoader";
   permission java.lang.RuntimePermission "modifyThread";
 }};
