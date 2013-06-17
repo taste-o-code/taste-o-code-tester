@@ -16,13 +16,13 @@ class Task(object):
   """
   precode = [""]
   postcode = [""]
-  
+
   def __init__(self, create_files = default_file_creator, tester = default_tester,
       checker = checker_ignore_whitespace):
     self.create_files = create_files.__get__(self)
     self.test = tester.__get__(self)
     self.checker = checker
- 
+
 
   """
   Compiles a task
@@ -30,7 +30,14 @@ class Task(object):
 
   Raises:
     CompilationError
-  """ 
+  """
   def compile(self, path):
+    pass
+
+  """
+  Runs before each task.
+  Can be used to copy necessary per-test files.
+  """
+  def before_test(self, test_dir, test_number):
     pass
 
