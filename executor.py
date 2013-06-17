@@ -8,7 +8,7 @@ class Executor:
     self.path = path
     self.task.source = source
 
-  def execute(self):
+  def execute(self, do_cleanup = True):
     task = self.task
     path = self.path
     try:
@@ -30,6 +30,7 @@ class Executor:
       result = ("failed", "Out tester failed on: " + unicode(exception))
     else:
       result =  ("accepted", None)
-    cleanup(path)
+    if do_cleanup:
+      cleanup(path)
     return result
 

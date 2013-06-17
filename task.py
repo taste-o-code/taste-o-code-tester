@@ -16,6 +16,8 @@ class Task(object):
   """
   precode = [""]
   postcode = [""]
+  
+  test_timelimit = 3 # 3 seconds
 
   def __init__(self, create_files = default_file_creator, tester = default_tester,
       checker = checker_ignore_whitespace):

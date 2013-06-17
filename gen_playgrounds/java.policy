@@ -4,6 +4,11 @@ grant {{
   permission java.util.PropertyPermission "user.dir", "read";
   permission java.lang.RuntimePermission "createClassLoader";
   permission java.lang.RuntimePermission "modifyThread";
+
+  // used by some tasks e.g. java - myster of class file to "catch" user's output
   permission java.lang.RuntimePermission "setIO";
+
+  // required by clojure.xml, check clojure - reinvent hiccup task
+  permission java.lang.RuntimePermission "accessClassInPackage.com.sun.org.apache.xerces.internal.jaxp";
 }};
 
