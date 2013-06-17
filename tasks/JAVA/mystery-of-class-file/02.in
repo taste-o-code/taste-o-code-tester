@@ -1,53 +1,53 @@
-version: 51.0 
-name: com.tasteocode.Complex 
-extends: java.util.ArrayList 
-implements: java.io.Serializable java.lang.Cloneable java.util.List java.util.Collection 
-access_flags: public final super 
+version: 51.0
+name: com.tasteocode.Complex
+extends: java.util.ArrayList
+implements: java.io.Serializable java.lang.Cloneable java.util.List java.util.Collection
+access_flags: public final super
 
-fields: 
-    name: publicInt 
-    type: int 
-    access_flags: public 
+fields:
+    name: publicInt
+    type: int
+    access_flags: public
 
-    name: privateDouble 
-    type: double 
-    access_flags: private final 
+    name: privateDouble
+    type: double
+    access_flags: private final
 
-    name: obj 
-    type: java.lang.Object 
-    access_flags: protected transient 
+    name: obj
+    type: java.lang.Object
+    access_flags: protected transient
 
-    name: aLong 
-    type: java.lang.Long 
-    access_flags: volatile 
+    name: aLong
+    type: java.lang.Long
+    access_flags: volatile
 
-    name: classes 
-    type: java.lang.Class[][][][][][][] 
-    access_flags:  
+    name: classes
+    type: java.lang.Class[][][][][][][]
+    access_flags:
 
 
-methods: 
-    name: <init> 
-    arguments: (int, double) 
-    return: void 
-    access_flags: public 
-    throws:  
+methods:
+    name: <init>
+    arguments: (int, double)
+    return: void
+    access_flags: public
+    throws:
 
-    name: <init> 
-    arguments: (java.lang.Class[][][][][][][], java.lang.Long) 
-    return: void 
-    access_flags: public 
-    throws:  
+    name: <init>
+    arguments: (java.lang.Class[][][][][][][], java.lang.Long)
+    return: void
+    access_flags: public
+    throws:
 
-    name: helloNative 
-    arguments: (int, boolean, short, byte, float, long, double) 
-    return: void 
-    access_flags: public native 
-    throws:  
+    name: helloNative
+    arguments: (int, boolean, short, byte, float, long, double)
+    return: void
+    access_flags: public native
+    throws:
 
-    name: manyExceptions 
-    arguments: () 
-    return: void 
-    access_flags: private 
-    throws: java.lang.RuntimeException java.lang.IllegalArgumentException java.lang.Exception java.io.IOException java.io.FileNotFoundException 
+    name: manyExceptions
+    arguments: ()
+    return: void
+    access_flags: private
+    throws: java.lang.RuntimeException java.lang.IllegalArgumentException java.lang.Exception java.io.IOException java.io.FileNotFoundException
 

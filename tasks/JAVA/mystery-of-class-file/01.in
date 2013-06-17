@@ -1,41 +1,41 @@
-version: 51.0 
-name: com.tasteocode.Outer$Inner 
-extends: java.lang.Object 
-implements:  
-access_flags: super abstract 
+version: 51.0
+name: com.tasteocode.Outer.Inner
+extends: java.lang.Object
+implements:
+access_flags: super abstract
 
-fields: 
-    name: thread 
-    type: java.lang.Thread 
-    access_flags: private final 
+fields:
+    name: thread
+    type: java.lang.Thread
+    access_flags: private final
 
-    name: this$0 
-    type: com.tasteocode.Outer 
-    access_flags: final synthetic 
+    name: this$0
+    type: com.tasteocode.Outer
+    access_flags: final synthetic
 
 
-methods: 
-    name: <init> 
-    arguments: (com.tasteocode.Outer) 
-    return: void 
-    access_flags: private 
-    throws:  
+methods:
+    name: <init>
+    arguments: (com.tasteocode.Outer)
+    return: void
+    access_flags: private
+    throws:
 
-    name: <init> 
-    arguments: (com.tasteocode.Outer, java.lang.Thread) 
-    return: void 
-    access_flags: protected 
-    throws:  
+    name: <init>
+    arguments: (com.tasteocode.Outer, java.lang.Thread)
+    return: void
+    access_flags: protected
+    throws:
 
-    name: abstractMethod 
-    arguments: (int[][], java.util.List) 
-    return: int 
-    access_flags: public abstract 
-    throws:  
+    name: abstractMethod
+    arguments: (int[][], java.util.List)
+    return: int
+    access_flags: public abstract
+    throws:
 
-    name: manyExceptions 
-    arguments: () 
-    return: void 
-    access_flags: private 
-    throws: java.io.IOException java.lang.IllegalArgumentException java.lang.RuntimeException java.io.FileNotFoundException 
+    name: manyExceptions
+    arguments: ()
+    return: void
+    access_flags: private
+    throws: java.io.IOException java.lang.IllegalArgumentException java.lang.RuntimeException java.io.FileNotFoundException
 

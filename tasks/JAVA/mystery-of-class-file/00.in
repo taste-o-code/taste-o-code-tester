@@ -1,25 +1,25 @@
-version: 51.0 
-name: com.tasteocode.Basic 
-extends: java.lang.Object 
-implements: java.io.Serializable 
-access_flags: public super 
+version: 51.0
+name: com.tasteocode.Basic
+extends: java.lang.Object
+implements: java.io.Serializable
+access_flags: public super
 
-fields: 
-    name: privateInt 
-    type: long 
-    access_flags: private 
+fields:
+    name: privateInt
+    type: long
+    access_flags: private
 
 
-methods: 
-    name: <init> 
-    arguments: (int) 
-    return: void 
-    access_flags: protected 
-    throws:  
+methods:
+    name: <init>
+    arguments: (int)
+    return: void
+    access_flags: protected
+    throws:
 
-    name: sum 
-    arguments: (int, java.lang.Integer) 
-    return: double 
-    access_flags: public 
-    throws: java.io.IOException 
+    name: sum
+    arguments: (int, java.lang.Integer)
+    return: double
+    access_flags: public
+    throws: java.io.IOException
 

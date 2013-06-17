@@ -119,7 +119,7 @@ class Parser {
 
     private void assertStarts(String line, String start) {
         if (!line.startsWith(start)) {
-            throw new FormatException();
+            throw new IllegalArgumentException("Line " + line + " must start with " + start);
         }
     }
 
@@ -141,8 +141,6 @@ class Parser {
         curLine--;
     }
 }
-
-class FormatException extends RuntimeException {}
 
 class Class {
     public final String name;
