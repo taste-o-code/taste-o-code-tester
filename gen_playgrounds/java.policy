@@ -4,5 +4,6 @@ grant {{
   permission java.util.PropertyPermission "user.dir", "read";
   permission java.lang.RuntimePermission "createClassLoader";
   permission java.lang.RuntimePermission "modifyThread";
+  permission java.lang.RuntimePermission "setIO";
 }};
 

@@ -1,8 +1,8 @@
 from executor import Executor
 
-lang = 'UNLAMBDA'
-task = 'hello-world'
-solution = open('solutions/' + lang + '/' + task + '.unl').read()
+lang = 'JAVA'
+task = 'mystery-of-class-file'
+solution = open('solutions/' + lang + '/' + task + '.java').read()
 result = Executor(lang, task, solution, '/home/playground/1/').execute()
 
 print result
