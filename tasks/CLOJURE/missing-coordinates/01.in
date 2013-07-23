@@ -1,0 +1,1 @@
+{:v56 {:left :v2, :up :v35}, :v98 {:right :v2, :up :v67}, :v47 {:right :v35, :left :v67, :down :v2, :up :v18}, :v67 {:right :v47, :down :v98, :up :v33}, :v35 {:left :v47, :down :v56, :up :v42}, :v33 {:right :v18, :down :v67}, :v18 {:right :v42, :left :v33, :down :v47}, :v42 {:left :v18, :down :v35}, :v2 {:right :v56, :left :v98, :up :v47}}
