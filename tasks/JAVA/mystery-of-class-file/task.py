@@ -15,3 +15,6 @@ class MysteryOfClassFileTask(JavaTask):
 
 task = MysteryOfClassFileTask()
 task.set_solution_class_name("ClassParser")
+task.test_descriptions = ["First example from task description.",
+                          "Second example from task description.",
+                          "Class with different kind of fields and methods. There are private, public, protected, default, volatile, transient, final fields, primitive, multidimensional array fields. Public, private, native fields."]

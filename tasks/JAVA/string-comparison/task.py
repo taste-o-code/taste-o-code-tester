@@ -5,3 +5,7 @@ from languages.java import JavaTask
 
 task = JavaTask()
 task.set_solution_class_name("StringComparison")
+task.test_descriptions = ["Checks ascending order.",
+                          "Checks descending order.",
+                          "Checks by length order."
+                          "Checks by word count order."]

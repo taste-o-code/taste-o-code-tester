@@ -15,3 +15,12 @@ class DerivativeTask(ClojureEvalTask):
 
 
 task = DerivativeTask()
+
+task.test_descriptions = ["Checks contstant.",
+                          "Checks x.",
+                          "Checks addition.",
+                          "Checks subtraction.",
+                          "Checks multiplication.",
+                          "Checks division.",
+                          "Checks complex expression with divisions, additions, multiplications and subtractions.",
+                          "Checks second derivative of complex expression."]

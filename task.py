@@ -16,7 +16,11 @@ class Task(object):
   """
   precode = [""]
   postcode = [""]
-  
+
+  # Short descriptions of test that will be showed to user so he can understand what is wrong with his solution
+  # If task doesn't override this field - no description will be showed to user.
+  test_descriptions = []
+
   test_timelimit = 3 # 3 seconds
 
   def __init__(self, create_files = default_file_creator, tester = default_tester,

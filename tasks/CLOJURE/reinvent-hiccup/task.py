@@ -15,3 +15,11 @@ class ReinventHiccupTask(ClojureEvalTask):
 
 
 task = ReinventHiccupTask()
+
+task.test_descriptions = ["Checks empty empty tag.",
+                          "Checks nested tags that might contain strings.",
+                          "Checks nested tags that might contain strings.",
+                          "Checks tag that contains collection (non vector).",
+                          "Checks tags that contain map of attributes.",
+                          "Checks tags that contain map of attributes.",
+                          "Checks simple tag."]

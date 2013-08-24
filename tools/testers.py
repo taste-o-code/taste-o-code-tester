@@ -44,5 +44,9 @@ def default_tester(task, path):
     elif is_timeout(exitcode):
       raise TimeLimitExceeded(test_number)
     elif not task.checker(output, stdout):
-      raise WrongAnswer("Failed on test #%s" % test_number)
+      if len(task.test_descriptions) < test_number:
+        message = "Failed on test #%s" % test_number
+      else:
+        message = "Failed on test #%s\n%s" % (test_number, task.test_descriptions[test_number - 1])
+      raise WrongAnswer(message)
     test_number += 1
