@@ -10,5 +10,10 @@ grant {{
 
   // required by clojure.xml, check clojure - reinvent hiccup task
   permission java.lang.RuntimePermission "accessClassInPackage.com.sun.org.apache.xerces.internal.jaxp";
+
+  // required by Dependency Injection task
+  permission java.lang.RuntimePermission "accessDeclaredMembers";
+  permission java.lang.reflect.ReflectPermission "suppressAccessChecks";
+
 }};
 
